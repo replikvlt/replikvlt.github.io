@@ -1,0 +1,19 @@
+body {
+	background-color: #FFFFFF;
+}
+#oldschool_screen {
+	margin: auto;
+	background-color: #008080;
+	border-style: solid;
+	border-width: 4px;
+}
+
+#menu {
+	border-style: solid;
+	border-width: 2px;
+}
+
+p,h1 {
+	padding-left: 6px;
+	padding-right: 6px;
+}
