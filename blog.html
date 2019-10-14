@@ -1,0 +1,71 @@
+<DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Replikvlt's web page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div id="oldschool_screen">
+	<h1>This is replikvlt's blog</h1>
+	<p>here will be posted some interesting articles you might find of use</p>
+	<div id="menu">
+		<p>Menu</p>
+		<p><a href="index.html">Home page</a></p>
+		<p><a href="hub.html">The Hub</a></p>
+		<p><a href="blog.html">Blog</a></p>
+
+	</div>
+	<div id="blog_articles">
+		<h2>Articles:</h2>
+		<div id="article">
+			<h3>Setting up on-the-go development environment</h3>
+			<h4>using power of *nix, ssh and editor such as vim or nano</h4>
+			<p>At this very day and age everyone has powerfull
+computers in their pockets, namely mobile devices powered by Android or iOS. That
+said, them being powerfull doesn't exactly mean that you can use them alone as a
+development platform. Some could argue with this, but the standard Android
+shell,for instance, lacks compilers and it's implementation of Java virtual machine is
+quite limited, it has no way to compile Java source program IIRC. That's exactly
+why we need a PC with Android Studio installed to compile applications for
+them.</p>
+			<p>However one can use his mobile device as a sole interface to a machine (a PC or a
+workstation) using <a href="https://www.ssh.com/ssh">SecureShell</a>. For this you would need to install ssh on both
+the workstation and a mobile device.<br>On mobile devices there are a lot of
+tools now created for system administrators which can be used to manage PCs such
+as <a href="https://www.termius.com">Termius</a>, <a
+href="https://termux.com">Termux</a> and many others. I myself have used both, but prefer Termux
+as it also allows me to manage my phone.<br>Now when you are already connected
+to your PC/Workstation, next thing is to set up your favourite editors. In my
+instance i was playing with Java so i set up vim with a nice dark color scheme,
+used <a
+href="https://www.vim.org/scripts/script.php?script_id=1785">javacomplete</a>
+plug-in which allowed me to have some autocompletion like you would get on any
+moder IDE and of course i downloaded OpeJDK on my PC to be able to build and run my Java
+programs.</p>
+		<p>This is how it looked</p>
+		<img
+src="https://cdn.niu.moe/media_attachments/files/003/409/794/original/66e9d82453d6e1cb.jpg"
+alt="Screenshot of my Android phone running Termux and me being connected via
+ssh to the PC and editing Java file in vim editor with color scheme and
+javacomplete autocomplete plug-in">
+		<p>Later i discovered there is a more
+powerfull javacomplete plug-in <a
+href="https://github.com/artur-shaik/vim-javacomplete2">vim-javacomplete2</a>
+which has a much more refined autocomplete system and code templates and other
+nitty features, however thing to consider is that your vim editor has to be
+compiled with scripting languages support (python support)</p>
+		<p>There are also other powerfull tools and plug-ins:<br>
+			*<a href="https://eclim.org">Eclim</a><br>
+			*<a
+href="https://github.com/OmniSharp/omnisharp-vim">Omnisharp-vim</a><br>
+			*<a
+href="http://ycm-core.github.io/YouCompleteMe">YouCompleteMe</a><br>
+			and much more</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
