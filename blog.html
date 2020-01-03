@@ -20,47 +20,117 @@
 	<div id="blog_articles">
 		<h2>Articles:</h2>
 		<div id="article">
+			<font face="Liberation Sans, sans-serif"><font size="6" style="font-size: 28pt"><b>Creating
+BTC Key pair with ReactOS and Python 3</b></font></font></p>
+			<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+			</p>
+			<p>If you decided to try out Bitcoin then you probably have asked
+			yourself “but how do i create bitcoin wallet?” While yes as you
+			probably tried to answer ti yourself, there are some services online
+			where you could register your wallet. Honestly speaking this is not
+			quite safe and secure, everything that relates to both internet and
+			bitcoin keys in combination. So I’m gonna tell you partially how I
+			did it offline.</p>
+			<h3 class="western">Yes indeed bitcoin wallet can be created
+			completely offline from “plain air”.</h3>
+			<p>Thanks for this discovery to my friend from <a href="https://www.sindastra.de/">sindastra.de</a></p>
+			<h3 class="western">In fact this is the preferred, secure way.</h3>
+			<p>Actually most people recommend using  Tails OS Live USB for
+			creating key pairs. <strike>And after that to burn the flash drive
+			used with Tesla Not a Flamethrower:)</strike></p>
+			<p style="text-decoration: none">Tails OS is “The amnesic incognito
+			live system” - great system for anonimity and information security.</p>
+			<p><span style="text-decoration: none">More at <a href="https://tails.boum.org/">tails.boum.org</a></span></p>
+			<p><span style="text-decoration: none">I have nothing against Tails
+			and you probably should use it, however here I will tell you how I
+			did create my keys using ReactOS</span><span style="text-decoration: none">.
+			Why and what is ReactOS?! </span><a href="https://www.reactos.org/"><span style="text-decoration: none">More...</span></a></p>
+			<p><span style="text-decoration: none">Why?</span></p>
+			<p><span style="text-decoration: none">Well in my imagination based
+			on what I read online, to get the same key generated (in hope to
+			hijack someones account) </span><span style="text-decoration: none">one</span><span style="text-decoration: none">
+			has to have same setup, so my decision on using ReactOS came directly
+			as  resolution of this. No-one ever in their sane mind would use
+			ReactOS by the time of writing this post </span><span style="text-decoration: none">because
+			it is alpha stage software, and not really usable in day to day use</span><span style="text-decoration: none">
+			so no one would be able to pick same key.</span></p>
+			<p><span style="text-decoration: none">What?</span></p>
+			<p><a name="cite_ref-7"></a><span style="text-decoration: none">“</span><span style="text-decoration: none"><b>ReactOS</b></span><span style="text-decoration: none">
+			is a free and open-source operating syste</span><span style="text-decoration: none">m</span><span style="text-decoration: none">
+			for amd64/i686 personal computers intended to be binary-compatible
+			with computer programs and device drivers made for Windows Server
+			2003 and later versions of Windows.” - </span><a href="https://en.wikipedia.org/wiki/ReactOS"><span style="text-decoration: none">Wikipedia</span></a></p>
+			<p>I used virt-manager qemu Virtual Machine to install ReactOS.
+			Installation is pretty straight-forward and simmilar to that of
+			WindowsXP.</p>
+			<p>Because it is not complete yet, after installation it would ask to
+			install few drivers but it will fail finding them online. I just
+			cancelled them.</p>
+			<p>After that I opened the Application Manager and searched for
+			Python 3.6. Installed it.</p>
+			<p>Since there is some issue where python installed doesn’t add
+			python’s folder to PATH I just opened cmd.exe, changed directory to
+			C:/Python36/Scripts and ran pip.exe to install needed libraries
+			base58 ecdsa</p>
+			<pre>pip.exe install base58 ecdsa
+			</pre><p>
+			and then you need to write this little python program in notepad from
+			<a href="https://www.reddit.com/r/Bitcoin/comments/7tzq3w/generate_your_own_private_key_5_lines_of_python/dy2bfcy/">Here…
+			(reddit)</a></p>
+			<p>and then change directory to C:/Python36/ and run</p>
+			<pre>python.exe &lt;path to file you typed&gt;</pre><p>
+			(instead of typing path by hand, you can just drop file inside the
+			cmd widow to insert it)</p>
+			<p>There you go it shall generate both public and private key. Now
+			you can run this few times and generate key you would like. After
+			that important part is to save both keys, public key can be shared
+			online but private should be hidden. Saving private key digitally is
+			really bad practice so idk. Write it on paper or something:)</p>
+			<p>Thanks for reading my blog post!</p>
+		</div>
+		<div id="article">
 			<h3>Setting up on-the-go development environment</h3>
 			<h4>using power of *nix, ssh and editor such as vim or nano</h4>
 			<p>At this very day and age everyone has powerfull
-computers in their pockets, namely mobile devices powered by Android or iOS. That
-said, being powerfull doesn't exactly mean that you can use them alone as a
-development platform. Some could argue with this, but the standard Android
-shell,for instance, lacks compilers and it's implementation of Java virtual machine is
-quite limited, it has no way to compile Java source program IIRC. That's exactly
-why we need a PC with Android Studio installed to compile applications for
-them.</p>
+			computers in their pockets, namely mobile devices powered by Android or iOS. That
+			said, being powerfull doesn't exactly mean that you can use them alone as a
+			development platform. Some could argue with this, but the standard Android
+			shell,for instance, lacks compilers and it's implementation of Java virtual machine is
+			quite limited, it has no way to compile Java source program IIRC. That's exactly
+			why we need a PC with Android Studio installed to compile applications for
+			them.</p>
 			<p>However one can use his mobile device as a sole interface to a machine (a PC or a
-workstation) using <a href="https://www.ssh.com/ssh">SecureShell</a>. For this you would need to install ssh on both
-the workstation and a mobile device.<br>On mobile devices there are a lot of
-tools now created for system administrators which can be used to manage PCs by utilizing ssh such
-as <a href="https://www.termius.com">Termius</a>, <a
-href="https://termux.com">Termux</a> and many others. I myself have used both, but prefer Termux
-as it also allows me to manage my phone.<br>Now next thing is to set up your favourite editors on your development machine. In my
-instance i was playing with Java so i set up vim with a nice dark color scheme,
-used <a
-href="https://www.vim.org/scripts/script.php?script_id=1785">javacomplete</a>
-plug-in which allowed me to have some autocompletion like you would get on any
-moder IDE and of course i downloaded OpeJDK on my PC to be able to build and run my Java
-programs.</p>
-		<p>This is how it looked</p>
-		<img
-src="https://cdn.niu.moe/media_attachments/files/003/409/794/original/66e9d82453d6e1cb.jpg"
-alt="Screenshot of my Android phone running Termux and me being connected via
-ssh to the PC and editing Java file in vim editor with color scheme and
-javacomplete autocomplete plug-in">
-		<p>Later i discovered there is a more
-powerfull javacomplete plug-in <a
-href="https://github.com/artur-shaik/vim-javacomplete2">vim-javacomplete2</a>
-which has a much more refined autocomplete system and code templates and other
-nitty features, however thing to consider is that your vim editor has to be
-compiled with scripting languages support (python support)</p>
-		<p>There are also other powerfull tools and plug-ins:<br>
+			workstation) using <a href="https://www.ssh.com/ssh">SecureShell</a>. For this you would need to install ssh on both
+			the workstation and a mobile device.<br>On mobile devices there are a lot of
+			tools now created for system administrators which can be used to manage PCs by utilizing ssh such
+			as <a href="https://www.termius.com">Termius</a>, <a
+			href="https://termux.com">Termux</a> and many others. I myself have used both, but prefer Termux
+			as it also allows me to manage my phone.<br>Now next thing is to set up your favourite editors on your development machine. In my
+			instance i was playing with Java so i set up vim with a nice dark color scheme,
+			used <a
+			href="https://www.vim.org/scripts/script.php?script_id=1785">javacomplete</a>
+			plug-in which allowed me to have some autocompletion like you would get on any
+			moder IDE and of course i downloaded OpeJDK on my PC to be able to build and run my Java
+			programs.</p>
+			<p>This is how it looked</p>
+			<img
+			src="https://cdn.niu.moe/media_attachments/files/003/409/794/original/66e9d82453d6e1cb.jpg"
+			alt="Screenshot of my Android phone running Termux and me being connected via
+			ssh to the PC and editing Java file in vim editor with color scheme and
+			javacomplete autocomplete plug-in">
+					<p>Later i discovered there is a more
+			powerfull javacomplete plug-in <a
+			href="https://github.com/artur-shaik/vim-javacomplete2">vim-javacomplete2</a>
+			which has a much more refined autocomplete system and code templates and other
+			nitty features, however thing to consider is that your vim editor has to be
+			compiled with scripting languages support (python support)</p>
+			<p>There are also other powerfull tools and plug-ins:<br>
 			*<a href="https://eclim.org">Eclim</a><br>
 			*<a
-href="https://github.com/OmniSharp/omnisharp-vim">Omnisharp-vim</a><br>
+			href="https://github.com/OmniSharp/omnisharp-vim">Omnisharp-vim</a><br>
 			*<a
-href="http://ycm-core.github.io/YouCompleteMe">YouCompleteMe</a><br>
+			href="http://ycm-core.github.io/YouCompleteMe">YouCompleteMe</a><br>
 			and much more</p>
 			<p>Now obviously you would also need to connect to your PC and in the local network it's easy, but if you want to write things in ouside. For that you would have to expose your PC to the network. Which you could do in several ways like:<br>
 			*Port Forwarding<br>
